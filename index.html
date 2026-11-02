@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mohammadreza Salehniya, naval architect and structural engineer</title>
+<meta name="description" content="Naval architect and structural engineer for ships and offshore units: class-approved structures, hydrodynamics, CFD and machine-learning damage detection.">
+<meta property="og:title" content="Mohammadreza Salehniya, naval architect and structural engineer">
+<meta property="og:description" content="Class-approved structures, hydrodynamics and CFD for ships and offshore units.">
+<meta name="theme-color" content="#061729">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a2540'/%3E%3Cpath d='M5 7v9c0 6 5 9 11 9s11-3 11-9V7' fill='none' stroke='%23ff6b1f' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#061729; --ink:#0a2540; --hull:#0f3558;
+  --rule:rgba(190,212,233,.18); --rule2:rgba(190,212,233,.38);
+  --text:#e9f0f6; --soft:#cddbe8; --mut:#a5b9cc;
+  --orange:#ff6b1f; --sand:#ffb27a; --line:#8fbde0;
+  --cond:"Barlow Condensed","Roboto Condensed","Avenir Next Condensed","Arial Narrow",sans-serif;
+  --sans:"Barlow","Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--deep);color:var(--text);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+.wrap{width:min(1200px,100% - 48px);margin-inline:auto}
+.skip{position:absolute;left:-999px;top:8px;background:var(--orange);color:var(--deep);padding:8px 12px;z-index:50;font-weight:600}
+.skip:focus{left:8px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 15px/1 var(--sans);padding:13px 18px;border:1px solid var(--rule2);background:transparent;color:var(--text);text-decoration:none;cursor:pointer;border-radius:2px;white-space:nowrap}
+.btn:hover{border-color:var(--text)}
+.btn.primary{background:var(--orange);border-color:var(--orange);color:var(--deep)}
+.btn.primary:hover{background:#ff8442;border-color:#ff8442}
+.btn svg{width:16px;height:16px;flex:none}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:20;background:rgba(6,23,41,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;gap:28px;min-height:64px}
+.brand{font:700 condensed 23px/1 var(--cond);text-decoration:none;margin-right:auto;letter-spacing:.005em}
+.nav ul{display:flex;gap:24px;list-style:none}
+.nav ul a{text-decoration:none;color:var(--mut);font-weight:500;font-size:15.5px;padding:6px 0;border-bottom:2px solid transparent}
+.nav ul a:hover{color:var(--text)}
+.nav ul a.on{color:var(--text);border-bottom-color:var(--orange)}
+.nav .btn{padding:10px 14px;font-size:14px}
+
+/* hero */
+.hero{border-bottom:1px solid var(--rule);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:56px;align-items:center;padding:76px 0 72px}
+.hero-text{container-type:inline-size}
+.role{color:var(--sand);font-weight:500;font-size:18px}
+h1{font:700 condensed min(104px,13.6cqi)/.88 var(--cond);letter-spacing:-.012em;margin:16px 0 28px}
+.intro{color:var(--soft);font-size:18.5px;line-height:1.6;max-width:33em}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.reach{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:26px;font-size:15px;color:var(--mut)}
+.reach a{text-decoration:none;border-bottom:1px solid var(--rule2)}
+.reach a:hover{color:var(--text);border-bottom-color:var(--text)}
+
+.plan{position:relative}
+.plan svg{width:100%;height:auto;display:block;overflow:visible}
+.plan .grid line{stroke:var(--rule2);stroke-width:1;vector-effect:non-scaling-stroke}
+.plan .grid .base{stroke:var(--line);opacity:.7}
+.plan .grid .cl{stroke-dasharray:10 4 2 4}
+.plan .dwl{stroke:var(--line);stroke-dasharray:6 5;opacity:.85}
+.plan .st{fill:none;stroke:var(--line);stroke-width:1.4;vector-effect:non-scaling-stroke}
+.plan .st.mid{stroke:var(--orange);stroke-width:2.2}
+.plan text{font:500 12px var(--sans);fill:var(--mut)}
+.plan .sides text{font-size:13px;fill:var(--soft)}
+.draw .st{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.5s cubic-bezier(.4,.1,.2,1) forwards}
+.draw .grid,.draw .labels{opacity:0;animation:fade .9s .2s ease forwards}
+.draw .labels{animation-delay:1.6s}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+
+.particulars{margin-top:22px;width:100%;border:1px solid var(--rule2);font-size:15px}
+.particulars caption{caption-side:top;text-align:left;font:600 15px var(--sans);padding:8px 12px;border:1px solid var(--rule2);border-bottom:0;color:var(--text)}
+.particulars{border-collapse:collapse}
+.particulars th,.particulars td{padding:7px 12px;border-top:1px solid var(--rule);text-align:left;vertical-align:baseline}
+.particulars th{font-weight:400;color:var(--mut)}
+.particulars td{font-weight:600;text-align:right;color:var(--text)}
+
+/* sections */
+.sec{padding:96px 0;border-bottom:1px solid var(--rule)}
+.sec.alt{background:var(--ink)}
+.head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:40px}
+h2{font:700 condensed clamp(42px,5.2vw,68px)/.92 var(--cond);letter-spacing:-.01em}
+.head p{color:var(--mut);max-width:34em}
+h3{font:700 condensed 27px/1.05 var(--cond)}
+
+/* projects */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.filters button{font:500 15px var(--sans);color:var(--soft);background:none;border:1px solid var(--rule2);padding:8px 15px;cursor:pointer;border-radius:999px}
+.filters button:hover{border-color:var(--text)}
+.filters button[aria-pressed="true"]{background:var(--text);color:var(--ink);border-color:var(--text)}
+.filters .n{opacity:.65;margin-left:6px}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;list-style:none}
+.card{display:flex;flex-direction:column;width:100%;height:100%;background:var(--ink);border:1px solid var(--rule);text-align:left;cursor:pointer;padding:0}
+.card:hover{border-color:var(--sand)}
+.card .ph{position:relative;background:#fff;aspect-ratio:16/10;border-bottom:1px solid var(--rule);overflow:hidden}
+.card .ph img{position:absolute;inset:10px;width:calc(100% - 20px);height:calc(100% - 20px);object-fit:contain}
+.badge{position:absolute;left:0;top:0;background:var(--orange);color:var(--deep);font-size:13px;font-weight:600;padding:3px 9px}
+.card .tx{display:flex;flex-direction:column;gap:6px;padding:16px 18px 18px;flex:1}
+.card h3{font-size:25px}
+.card p{color:var(--mut);font-size:15.5px;line-height:1.45}
+.card .sw{margin-top:auto;padding-top:12px;border-top:1px solid var(--rule);font-size:14px;color:var(--soft)}
+.card[hidden]{display:none}
+
+/* research */
+.thesis{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.25fr);gap:48px;align-items:start}
+.thesis h3{font-size:34px;line-height:1;margin-bottom:14px}
+.thesis .lead{color:var(--soft);font-size:18px;margin-bottom:24px}
+.results{border-top:1px solid var(--rule2)}
+.results div{display:grid;grid-template-columns:9.6rem 1fr;gap:16px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--rule)}
+.results dt{font:700 condensed 30px/1 var(--cond);color:var(--sand);white-space:nowrap}
+.results dd{color:var(--soft);font-size:15.5px;line-height:1.4}
+.credits{margin-top:22px;color:var(--mut);font-size:15px}
+.credits b{color:var(--text);font-weight:600}
+.fig-main{background:#fff;border:1px solid var(--rule2)}
+.fig-main button{display:block;width:100%;border:0;padding:0;background:#fff;cursor:zoom-in}
+.fig-cap{font-size:14px;color:var(--mut);margin-top:8px;line-height:1.4}
+.fig-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:14px}
+.fig-row button{background:#fff;border:1px solid var(--rule2);padding:4px;aspect-ratio:1/1;cursor:pointer}
+.fig-row button:hover{border-color:var(--sand)}
+.fig-row img{width:100%;height:100%;object-fit:contain}
+.thesis .btn{margin-top:20px}
+.pubs{margin-top:72px;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.25fr);gap:48px}
+.pubs ol{list-style:none;counter-reset:p;border-top:1px solid var(--rule2)}
+.pubs li{padding:14px 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:4px 24px}
+.pubs li span{color:var(--mut);font-size:15px;white-space:nowrap}
+.pubs .note{color:var(--mut);font-size:15.5px;max-width:30em;margin-top:12px}
+
+/* experience */
+.timeline{position:relative;display:grid;grid-template-columns:repeat(11,minmax(0,1fr));row-gap:10px;margin-bottom:56px;background-image:linear-gradient(to right,var(--rule) 1px,transparent 1px);background-size:calc(100% / 11) 100%;border-right:1px solid var(--rule);padding-bottom:6px}
+.timeline .yr{font-size:14px;color:var(--mut);padding:0 0 10px 8px}
+.timeline .bar{height:46px;display:flex;align-items:center;padding:0 14px;font-weight:600;font-size:15.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+.bar.study{background:var(--hull);border-left:3px solid var(--sand)}
+.bar.work{background:var(--orange);color:var(--deep);background-image:linear-gradient(to right,var(--orange) 85%,rgba(255,107,31,.25))}
+.bar small{font-weight:500;font-size:14px;margin-left:10px;opacity:.85}
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px}
+.cols h3{margin-bottom:14px}
+.entry{margin-bottom:22px}
+.entry b{display:block;font-weight:600;font-size:17.5px}
+.entry span{display:block;color:var(--mut);font-size:15.5px}
+.cols ul{padding-left:18px;color:var(--soft);font-size:16px}
+.cols li{margin:6px 0}
+.cols li::marker{color:var(--orange)}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 48px;border-top:1px solid var(--rule2)}
+.skills > div{padding:24px 0;border-bottom:1px solid var(--rule)}
+.skills h3{font-size:24px;margin-bottom:8px}
+.skills p{color:var(--soft);font-size:16px}
+.skills .wide{grid-column:1/-1}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin-top:4px}
+.chips li{border:1px solid var(--rule2);padding:4px 12px;font-size:15px;border-radius:999px;color:var(--text)}
+
+/* contact */
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end}
+.contact p{color:var(--soft);max-width:30em;margin-top:18px}
+.mail{font:700 condensed clamp(24px,3vw,40px)/1.15 var(--cond);text-decoration:none;border-bottom:2px solid var(--orange);overflow-wrap:anywhere}
+.mail:hover{color:var(--sand)}
+.contact dl{margin-top:26px;display:grid;grid-template-columns:auto 1fr;gap:8px 24px;font-size:16px}
+.contact dt{color:var(--mut)}
+.contact dd a{text-decoration:none;border-bottom:1px solid var(--rule2)}
+.contact dd a:hover{border-bottom-color:var(--text)}
+footer{padding:28px 0 40px;color:var(--mut);font-size:14.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer button{background:none;border:0;color:var(--soft);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+
+/* project dialog */
+dialog.pd{width:min(1260px,100vw - 32px);height:min(880px,100vh - 32px);max-width:none;max-height:none;margin:auto;background:var(--ink);color:var(--text);border:1px solid var(--rule2);padding:0;overflow:hidden}
+dialog.pd::backdrop{background:rgba(3,10,20,.84)}
+.pd-in{display:grid;grid-template-rows:auto minmax(0,1fr) auto;height:100%}
+.pd-bar{display:flex;align-items:center;gap:8px;padding:10px 12px 10px 20px;border-bottom:1px solid var(--rule)}
+.pd-bar .where{margin-right:auto;color:var(--mut);font-size:14.5px}
+.pd-bar .btn{padding:9px 13px;font-size:14px}
+.pd-body{display:grid;grid-template-columns:minmax(300px,.78fr) minmax(0,1.75fr);min-height:0}
+.pd-info{padding:26px 26px 30px;border-right:1px solid var(--rule);overflow:auto;display:flex;flex-direction:column;gap:16px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none}
+.tags li{border:1px solid var(--rule2);padding:2px 10px;font-size:13.5px;font-weight:500}
+.tags li.ca{background:var(--orange);border-color:var(--orange);color:var(--deep);font-weight:600}
+.pd-info h2{font-size:clamp(34px,3.4vw,44px);line-height:.98}
+.pd-info .lead{color:var(--soft);font-size:16.5px;line-height:1.55}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px 0}
+.facts dt{font:700 condensed 26px/1 var(--cond);color:var(--sand)}
+.facts dd{font-size:13.5px;color:var(--mut);line-height:1.3;margin-top:3px}
+.pts{padding-left:18px;font-size:15.5px;color:var(--soft)}
+.pts li{margin:5px 0}
+.pts li::marker{color:var(--orange)}
+.pd-gal{display:grid;grid-template-rows:minmax(0,1fr) auto;gap:12px;padding:16px;background:var(--hull);min-width:0;min-height:0}
+.pd-fig{display:flex;flex-direction:column;min-height:0}
+.pd-fig button{flex:1;min-height:0;display:flex;background:#fff;border:1px solid var(--rule2);padding:8px;cursor:zoom-in}
+.pd-fig img{width:100%;height:100%;object-fit:contain}
+.pd-fig figcaption{font-size:14px;color:var(--soft);margin-top:8px;line-height:1.35;min-height:2.7em}
+.pd-fig figcaption b{color:var(--text);font-weight:600;margin-right:6px}
+.thumbs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.thumbs button{background:#fff;border:2px solid transparent;outline:1px solid var(--rule2);padding:3px;aspect-ratio:16/10;cursor:pointer}
+.thumbs button[aria-current="true"]{border-color:var(--orange);outline-color:var(--orange)}
+.thumbs img{width:100%;height:100%;object-fit:contain}
+.tb{display:flex;flex-wrap:wrap;border-top:1px solid var(--rule2)}
+.tb div{flex:1 1 150px;padding:8px 14px;border-right:1px solid var(--rule)}
+.tb div:last-child{flex:0 0 auto;border-right:0;background:var(--hull)}
+.tb dt{font-size:12.5px;color:var(--mut);font-weight:500}
+.tb dd{font-size:14px;font-weight:500;line-height:1.3}
+.zoom{position:fixed;inset:0;z-index:5;background:rgba(3,10,20,.95);display:flex;align-items:center;justify-content:center;padding:24px;cursor:zoom-out;border:0;width:100%}
+.zoom[hidden]{display:none}
+.zoom img{max-width:100%;max-height:100%;background:#fff;padding:6px}
+
+/* responsive */
+@media screen and (max-width:1000px){
+  .hero .wrap{grid-template-columns:1fr;gap:44px;padding:56px 0}
+  .particulars{margin-left:0}
+  .head,.thesis,.pubs,.contact .wrap{grid-template-columns:1fr;gap:24px}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cols{grid-template-columns:1fr 1fr}
+  .skills{grid-template-columns:1fr 1fr}
+  .pd-in{display:block;overflow:auto}
+  .pd-bar{position:sticky;top:0;z-index:2;background:var(--ink)}
+  .pd-body{grid-template-columns:1fr}
+  .pd-gal{order:-1;grid-template-rows:auto auto}
+  .pd-info{border-right:0;overflow:visible}
+  .pd-fig button{flex:none}
+  .pd-fig img{height:auto;max-height:58vh}
+}
+@media screen and (max-width:760px){
+  body{font-size:16px}
+  .wrap{width:min(1200px,100% - 32px)}
+  .nav .wrap{flex-wrap:wrap;gap:0;padding-top:12px}
+  .nav ul{order:3;width:100%;overflow-x:auto;gap:20px;padding:8px 0 10px;scrollbar-width:none}
+  .nav ul::-webkit-scrollbar{display:none}
+  .nav .btn{display:none}
+  html{scroll-padding-top:104px}
+  .sec{padding:64px 0}
+  .cards,.cols,.skills{grid-template-columns:1fr}
+  .cols{gap:16px}
+  .timeline .yr{font-size:12px;padding-left:4px}
+  .timeline .yr .c{display:none}
+  .timeline .yr::before{content:"\2019"}
+  .timeline .bar{font-size:14px;padding:0 8px}
+  .bar small{display:none}
+  .fig-row{grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+  .results div{grid-template-columns:8rem 1fr;gap:12px}
+  .results dt{font-size:23px}
+  .pubs li{grid-template-columns:1fr}
+  dialog.pd{width:100vw;height:100%;max-height:100dvh;border:0}
+  .pd-bar .lbl{display:none}
+  .thumbs{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .facts{grid-template-columns:1fr 1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .draw .st,.draw .grid,.draw .labels{animation:none;stroke-dashoffset:0;opacity:1}
+}
+
+/* print: a light, paper version of the same page */
+@page{size:A4;margin:14mm}
+@media print{
+  :root{--deep:#fff;--ink:#fff;--hull:#eef2f6;--rule:#cfd8e1;--rule2:#9fb0c1;--text:#0a2540;--soft:#27405a;--mut:#4a5f74;--sand:#b4460a;--line:#0a2540}
+  body{font-size:10.5pt;line-height:1.45}
+  .nav,.cta,.filters,.thesis .btn,.fig-row,footer,dialog,.skip{display:none!important}
+  .wrap{width:100%}
+  .hero .wrap{padding:0 0 18px;gap:24px;grid-template-columns:1.25fr 1fr}
+  .plan svg{display:none}
+  .particulars{margin-top:0;font-size:9pt}
+  h1{margin:6px 0 12px}
+  #research{break-before:page}
+  .head,h2,h3{break-after:avoid}
+  .results dt{font-size:18pt}
+  .results div{grid-template-columns:8.6rem 1fr}
+  .timeline,.cols > div,.skills > div,.pubs li,.results{break-inside:avoid}
+  .intro{font-size:11pt}
+  .sec{padding:22px 0;break-inside:auto}
+  .head{margin-bottom:14px;grid-template-columns:1fr}
+  h2{font-size:28pt}
+  .cards{grid-template-columns:repeat(3,1fr);gap:10px}
+  .card{break-inside:avoid}
+  .card .tx{padding:8px 10px}
+  .card h3{font-size:14pt}
+  .card p,.card .sw{font-size:9pt}
+  .card[hidden]{display:flex}
+  .thesis{grid-template-columns:1fr 1fr;gap:20px}
+  .pubs{margin-top:24px;grid-template-columns:1fr;gap:6px}
+  .pubs .note{max-width:none}
+  .bar.work{color:#fff}
+  .contact .wrap{grid-template-columns:1fr}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .draw .st,.draw .grid,.draw .labels{animation:none;stroke-dashoffset:0;opacity:1}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#projects">Skip to projects</a>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top">M. Salehniya</a>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="btn" type="button" data-print>Save as PDF</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-text">
+      <p class="role">Naval architect and structural engineer, marine and offshore</p>
+      <h1>Mohammadreza<br>Salehniya</h1>
+      <p class="intro">Class-approved structures, hydrodynamics and CFD for ships and offshore units: lifting operations, diving support vessels, catamarans, landing craft and floating platforms. Five years at APS Consulting Engineers, and an M.Sc. at Sharif University of Technology on machine-learning damage detection for offshore jackets.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">View projects</a>
+        <a class="btn" href="mailto:m.salehniya1997@gmail.com">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="1.5" y="3" width="13" height="10"/><path d="M1.5 3.5 8 9l6.5-5.5"/></svg>
+          Send an email</a>
+      </div>
+      <p class="reach">
+        <a href="https://www.linkedin.com/in/mohammadreza-salehniya" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="tel:+989396559633">+98 939 655 9633</a>
+        <a href="mailto:m.salehniya1997@gmail.com">m.salehniya1997@gmail.com</a>
+      </p>
+    </div>
+    <div class="plan">
+      <svg id="bodyplan" class="draw" viewBox="0 0 640 340" role="img" aria-label="Body plan of a ship hull: aft stations on the left, forward stations on the right, midship section highlighted"></svg>
+      <table class="particulars">
+        <caption>Principal particulars</caption>
+        <tbody>
+          <tr><th scope="row">Discipline</th><td>Ship and offshore structures</td></tr>
+          <tr><th scope="row">Practice</th><td>5+ years, since 2021</td></tr>
+          <tr><th scope="row">Class-approved designs</th><td>6</td></tr>
+          <tr><th scope="row">Projects on this site</th><td>13</td></tr>
+          <tr><th scope="row">M.Sc., Sharif University</th><td>GPA 3.74 of 4.00</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="sec" id="projects" aria-labelledby="projects-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="projects-h">Projects</h2>
+      <p>Twelve studies from APS Consulting Engineers across ship and offshore structures, hydrodynamics and CFD. Open a project for its figures, rules, software and role.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button type="button" data-f="all" aria-pressed="true">All projects<span class="n"></span></button>
+      <button type="button" data-f="structure" aria-pressed="false">Structural analysis<span class="n"></span></button>
+      <button type="button" data-f="hydro" aria-pressed="false">Hydrodynamics and CFD<span class="n"></span></button>
+    </div>
+    <ul class="cards" id="cards"></ul>
+  </div>
+</section>
+
+<section class="sec alt" id="research" aria-labelledby="research-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="research-h">Research</h2>
+      <p>Structural identification and damage detection of a laboratory offshore jacket using machine learning. M.Sc. thesis, Sharif University of Technology, 2026.</p>
+    </div>
+    <div class="thesis">
+      <div>
+        <h3>Damage detection in an offshore jacket</h3>
+        <p class="lead">Damage detection and localisation on a 1:25 laboratory jacket inspired by the Resalat platform, from noisy impact tests. A new graph-spectral index, GSDEI, localises damaged members.</p>
+        <dl class="results">
+          <div><dt>176</dt><dd>damage scenarios simulated, 128 of them damaged</dd></div>
+          <div><dt>MAC &gt; 0.91</dt><dd>finite-element model calibrated to test data</dd></div>
+          <div><dt>96.9%</dt><dd>balanced accuracy, modal-baseline LDA</dd></div>
+          <div><dt>93.7%</dt><dd>unsupervised PCA accuracy</dd></div>
+          <div><dt>32 to 12</dt><dd>sensors after effective-independence selection</dd></div>
+        </dl>
+        <p class="credits">Supervised by <b>Dr. Mohammadreza Tabeshpour</b>. Funded by an <b>Iran National Science Foundation</b> research grant. Thesis graded <b>18.4 of 20</b>.</p>
+        <button class="btn" type="button" data-open="thesis">Open all thesis figures</button>
+      </div>
+      <div>
+        <figure>
+          <div class="fig-main"><button type="button" data-open="thesis" data-fig="0" aria-label="Open figure 1 of the thesis"><img data-img="69" alt="Localisation of a 10% stiffness loss in member 18: GSDEI map against LIRDI, ULS, MSE, MKEI and combined index maps"></button></div>
+          <figcaption class="fig-cap">Localisation of a 10% stiffness loss in member 18 (left): GSDEI against the benchmark indices LIRDI, ULS, MSE, MKEI and a combined index.</figcaption>
+        </figure>
+        <div class="fig-row" id="thesis-row"></div>
+      </div>
+    </div>
+    <div class="pubs">
+      <div>
+        <h3>Publications</h3>
+        <p class="note">Two further student journal articles came out of the ship manoeuvring and rudder design study.</p>
+      </div>
+      <ol>
+        <li>Damage detection in an experimental jacket using modal baseline and linear discriminant analysis.<span>ISAV 2026</span></li>
+        <li>Sensitivity of FDD mode shapes to excitation force, noise and damage in an experimental jacket.<span>ISAV 2026</span></li>
+        <li>Structural damage detection in a fixed offshore platform using unsupervised learning.<span>15th National Civil Engineering Congress, 2026</span></li>
+        <li>Artificial intelligence in structural health monitoring: methods, challenges and future trends.<span>2026</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="experience" aria-labelledby="experience-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="experience-h">Experience and education</h2>
+      <p>Consulting work at APS since 2021, with the M.Sc. at Sharif completed alongside it.</p>
+    </div>
+    <div class="timeline" aria-hidden="true">
+      <span class="yr"><span class="c">20</span>16</span><span class="yr"><span class="c">20</span>17</span><span class="yr"><span class="c">20</span>18</span><span class="yr"><span class="c">20</span>19</span><span class="yr"><span class="c">20</span>20</span><span class="yr"><span class="c">20</span>21</span><span class="yr"><span class="c">20</span>22</span><span class="yr"><span class="c">20</span>23</span><span class="yr"><span class="c">20</span>24</span><span class="yr"><span class="c">20</span>25</span><span class="yr"><span class="c">20</span>26</span>
+      <div class="bar study" style="grid-column:1/7;grid-row:2">B.Sc. Amirkabir<small>Naval architecture</small></div>
+      <div class="bar work" style="grid-column:6/12;grid-row:3">APS Consulting Engineers<small>since May 2021</small></div>
+      <div class="bar study" style="grid-column:8/12;grid-row:4">M.Sc. Sharif<small>Ship and offshore structures</small></div>
+    </div>
+    <div class="cols">
+      <div>
+        <h3>Work</h3>
+        <div class="entry"><b>Naval architect and structural engineer</b><span>APS Consulting Engineers, Tehran, since May 2021</span></div>
+        <ul>
+          <li>Global and local structural FEA to DNV, ABS, BV and KR rules; six designs approved by classification societies.</li>
+          <li>Hydrostatics and stability, including a complete stability booklet.</li>
+          <li>Trained interns on the motion of moored buoys and their wave-energy absorption.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Education</h3>
+        <div class="entry"><b>M.Sc. Ship and Offshore Structures</b><span>Sharif University of Technology, 2023 to 2026</span><span>GPA 3.74 of 4.00, thesis graded 18.4 of 20</span></div>
+        <div class="entry"><b>B.Sc. Naval Architecture Engineering</b><span>Amirkabir University of Technology, 2016 to 2021</span></div>
+      </div>
+      <div>
+        <h3>Honours</h3>
+        <ul>
+          <li>Research grant from the Iran National Science Foundation for the M.Sc. thesis.</li>
+          <li>Ranked 7th nationwide among naval architecture candidates in the 2023 M.Sc. entrance exam.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="skills" aria-labelledby="skills-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="skills-h">Skills</h2>
+      <p>Methods, software and languages used across the projects above.</p>
+    </div>
+    <div class="skills">
+      <div><h3>Structural</h3><p>Global and local FEA, buckling, fatigue, modal analysis, optimisation, lifting and padeye design</p></div>
+      <div><h3>Hydrodynamics</h3><p>Motions and wave loads, mooring, one-way FSI, resistance and powering, IMO manoeuvring, stability</p></div>
+      <div><h3>Programming and languages</h3><p>Python, MATLAB, C/C++</p><p>Persian (native), English (professional)</p></div>
+      <div class="wide"><h3>Software</h3>
+        <ul class="chips">
+          <li>Ansys Mechanical</li><li>Ansys AQWA</li><li>Fluent</li><li>CFX</li><li>ICEM CFD</li><li>STAR-CCM+</li><li>Dlubal RFEM</li><li>SolidWorks</li><li>CATIA</li><li>Rhino</li><li>AutoCAD</li><li>Maxsurf</li><li>Autoship</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt contact" id="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <div>
+      <h2 id="contact-h">Contact</h2>
+      <p>Email is the quickest way to reach Mohammadreza. Phone and LinkedIn work too.</p>
+    </div>
+    <div>
+      <a class="mail" href="mailto:m.salehniya1997@gmail.com">m.salehniya1997@gmail.com</a>
+      <dl>
+        <dt>Phone</dt><dd><a href="tel:+989396559633">+98 939 655 9633</a></dd>
+        <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/mohammadreza-salehniya" target="_blank" rel="noopener">linkedin.com/in/mohammadreza-salehniya</a></dd>
+      </dl>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Mohammadreza Salehniya, naval architect and structural engineer</span>
+    <button type="button" data-print>Save this page as a PDF</button>
+  </div>
+</footer>
+
+<dialog class="pd" id="pd" aria-labelledby="pd-title">
+  <div class="pd-in">
+    <div class="pd-bar">
+      <span class="where" id="pd-where"></span>
+      <button class="btn" type="button" id="pd-prev" aria-label="Previous project"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg><span class="lbl">Previous</span></button>
+      <button class="btn" type="button" id="pd-next" aria-label="Next project"><span class="lbl">Next</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg></button>
+      <button class="btn" type="button" id="pd-close" aria-label="Close project"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m3 3 10 10M13 3 3 13"/></svg><span class="lbl">Close</span></button>
+    </div>
+    <div class="pd-body">
+      <div class="pd-info">
+        <ul class="tags" id="pd-tags"></ul>
+        <h2 id="pd-title"></h2>
+        <p class="lead" id="pd-lead"></p>
+        <dl class="facts" id="pd-facts"></dl>
+        <ul class="pts" id="pd-pts"></ul>
+      </div>
+      <div class="pd-gal">
+        <figure class="pd-fig">
+          <button type="button" id="pd-zoom" aria-label="Enlarge figure"><img id="pd-img" alt=""></button>
+          <figcaption id="pd-cap"></figcaption>
+        </figure>
+        <div class="thumbs" id="pd-thumbs"></div>
+      </div>
+    </div>
+    <dl class="tb" id="pd-tb"></dl>
+  </div>
+  <button class="zoom" type="button" id="zoom" hidden aria-label="Close enlarged figure"><img alt=""></button>
+</dialog>
+
+<script>
+const IMG = ["img/backhoe-1.webp", "img/backhoe-2.webp", "img/backhoe-3.webp", "img/backhoe-4.webp", "img/backhoe-5.webp", "img/backhoe-6.webp", "img/dsv-1.webp", "img/dsv-2.webp", "img/dsv-3.webp", "img/dsv-4.webp", "img/dsv-5.webp", "img/dsv-6.webp", "img/catamaran-1.webp", "img/catamaran-2.webp", "img/catamaran-3.webp", "img/catamaran-4.webp", "img/catamaran-5.webp", "img/catamaran-6.webp", "img/landing-craft-1.webp", "img/landing-craft-2.webp", "img/landing-craft-3.webp", "img/landing-craft-4.webp", "img/landing-craft-5.webp", "img/landing-craft-6.webp", "img/mast-1.webp", "img/mast-2.webp", "img/mast-3.webp", "img/mast-4.webp", "img/mast-5.webp", "img/osv-crane-deck-1.webp", "img/osv-crane-deck-2.webp", "img/osv-crane-deck-3.webp", "img/osv-crane-deck-4.webp", "img/osv-crane-deck-5.webp", "img/osv-crane-deck-6.webp", "img/hull-154-1.webp", "img/hull-154-2.webp", "img/hull-154-3.webp", "img/hull-154-4.webp", "img/hull-154-5.webp", "img/hull-154-6.webp", "img/gantry-crane-1.webp", "img/gantry-crane-2.webp", "img/gantry-crane-3.webp", "img/gantry-crane-4.webp", "img/gantry-crane-5.webp", "img/gantry-crane-6.webp", "img/dry-dock-gate-1.webp", "img/dry-dock-gate-2.webp", "img/dry-dock-gate-3.webp", "img/dry-dock-gate-4.webp", "img/dry-dock-gate-5.webp", "img/dry-dock-gate-6.webp", "img/pontoon-1.webp", "img/pontoon-2.webp", "img/pontoon-3.webp", "img/pontoon-4.webp", "img/pontoon-5.webp", "img/pontoon-6.webp", "img/manoeuvring-1.webp", "img/manoeuvring-2.webp", "img/manoeuvring-3.webp", "img/manoeuvring-4.webp", "img/manoeuvring-5.webp", "img/manoeuvring-6.webp", "img/airboat-1.webp", "img/airboat-2.webp", "img/airboat-3.webp", "img/airboat-4.webp", "img/thesis-1.webp", "img/thesis-2.webp", "img/thesis-3.webp", "img/thesis-4.webp", "img/thesis-5.webp", "img/thesis-6.webp"];
+
+const APS = ["Consultant","APS Consulting Engineers, Tehran"];
+const P = [
+ {id:"backhoe", g:["structure"], ca:true, tags:["Structure","Offshore lifting"],
+  title:"Backhoe dredger and 5,000 t test-load barge", sub:"Lifting test, global and local FEA",
+  lead:"A 70 m non-propelled barge that doubles as a 5,000-tonne test weight for an offshore crane. The study proves the hull, padeyes and slings through the lift, including the loss of any single sling.",
+  facts:[["4,532 t","lift test weight"],["16 slings","on 8 padeyes"],["551 t","peak sling load, 1,339 t breaking"],["16 mm","midship sag when lifted"]],
+  pts:["Global shell-and-beam model of the hull with sling wires, solved with large-deformation analysis.","Five load combinations: intact lift plus four single-sling-failure cases.","Plating and girders held to the 235 MPa limit; stiffeners peak at 92.7 MPa.","Local studies for padeyes and slings, midship section, excavator, winch, spuds and jack support, and docking."],
+  figs:[[0,"Lifting-test model: the barge hangs from one crane hook on 16 sling wires"],[1,"Padeye and foundation, von Mises stress"],[2,"Excavator foundation, total deformation"],[3,"Spud well and jack support, deformation"],[4,"Midship section under load, deformation"],[5,"Deck panel stress, enveloped over all load cases"]],
+  tb:[APS,["Client","Iranian Offshore Engineering and Construction Co. (IOEC)"],["Rules","GL Noble Denton 0027/ND, DNVGL-CG-0127, DNVGL-RU-SHIP Pt.3 Ch.7"],["Software","Dlubal RFEM, SolidWorks"],["Role","Structural engineer, analysis reports"]]},
+ {id:"dsv", g:["structure","hydro"], ca:true, tags:["Structure","CFD"],
+  title:"Diving support vessel with moon pool", sub:"Hull structure and moon-pool CFD",
+  lead:"A diving support vessel with a full-depth moon pool. The hull is reinforced to carry a deep-diving chamber, accommodation containers and client payloads; the moon-pool water motion is then tamed with baffles.",
+  facts:[["3","compartments modelled in detail"],["Baffles","designed to stop splashing and deck wetness"]],
+  pts:["Detailed three-compartment midship model around the moon pool.","Reinforcement of the deck and supports under the chamber, containers and payloads.","Multiphase CFD of water motion in the pool, with the added propulsion power it causes."],
+  figs:[[6,"Midship section model, three compartments around the moon pool"],[7,"Payload footprints on deck: chamber, containers, client loads"],[8,"Total deformation of the hull module"],[9,"Equivalent stress, bottom and side shell"],[10,"Moon-pool CFD, free surface inside the pool"],[11,"Wave field around the hull"]],
+  tb:[APS,["Software","Ansys Mechanical, STAR-CCM+"],["Role","Structural and CFD engineer"]]},
+ {id:"catamaran", g:["structure","hydro"], ca:true, tags:["Structure","Hydrodynamics"],
+  title:"Catamaran", sub:"Global structure, one-way FSI, CFD",
+  lead:"Global structural analysis of a catamaran to KR rules, loaded with wave pressures taken from a hydrodynamic model, plus resistance and powering runs on the same hull.",
+  facts:[["AQWA to Ansys","one-way FSI pressure transfer"],["KR","class rules"]],
+  pts:["Global FEA of the twin-hull structure under multiple load cases.","Hull pressures from Ansys AQWA mapped onto the structural model.","Engine foundation optimised.","Resistance, powering and stability with STAR-CCM+ and Autoship."],
+  figs:[[12,"Midship section FE model: twin hulls and cross structure"],[13,"Global FE model of the full vessel"],[14,"Hull deformation under mapped wave pressure"],[15,"Equivalent stress, bottom plan view"],[16,"Free-surface wave pattern, CFD resistance run"],[17,"Free-surface elevation between the demihulls"]],
+  tb:[APS,["Rules","KR"],["Software","Ansys Mechanical, AQWA, STAR-CCM+, Autoship"],["Role","Structural and CFD engineer"]]},
+ {id:"landing", g:["structure"], ca:true, tags:["Structure"],
+  title:"54 m landing craft, second deck", sub:"Vehicle deck structure",
+  lead:"Design of a five-metre-high second vehicle deck for a landing craft, with elevator openings, checked under vehicle loading and KR acceleration load cases.",
+  facts:[["5 m","high second vehicle deck"],["KR","acceleration load cases"]],
+  pts:["Deck, side shell and pillars modelled in Ansys.","Vehicle footprints applied as patch loads.","Stress checked around the elevator openings."],
+  figs:[[18,"Second-deck structure model"],[19,"Vehicle and deck loads applied"],[20,"Total deformation under vehicle loading"],[21,"Equivalent stress on the structure"],[22,"Deck plan stress around the elevator opening"],[23,"Pillars and girders under the deck"]],
+  tb:[APS,["Rules","KR"],["Software","Ansys Mechanical"],["Role","Structural engineer"]]},
+ {id:"mast", g:["structure"], tags:["Structure","Optimisation"],
+  title:"Aluminium vessel mast", sub:"Optimisation, buckling, fatigue, modal",
+  lead:"A parametric aluminium mast designed to BV rules and then slimmed down with a two-stage genetic algorithm, without giving up strength, buckling or fatigue margins.",
+  facts:[["300","design points"],["20","shell-thickness parameters"],["2","stage genetic algorithm"]],
+  pts:["Static, nonlinear buckling, fatigue and modal analyses.","Thicknesses optimised to reduce weight."],
+  figs:[[24,"Parametric FE model of the mast and its base"],[25,"Loads and supports"],[26,"Equivalent stress"],[27,"Total deformation of the mast"],[28,"Stress in the base deck plating"]],
+  tb:[APS,["Rules","BV"],["Software","Ansys Mechanical"],["Role","Structural engineer"]]},
+ {id:"osv", g:["structure"], ca:true, tags:["Structure"],
+  title:"Offshore support vessel, crane pedestal deck", sub:"Deck structure under a crane",
+  lead:"Strengthening of the deck and deckhouse that carry a heavy offshore crane, checked as a coupled structure rather than as an isolated pedestal.",
+  facts:[],
+  pts:["Deck, deckhouse and bulkheads modelled together.","Crane reactions applied at the pedestal.","Reinforcement checked for stress and deformation."],
+  figs:[[29,"Crane pedestal deck and deckhouse, FE model"],[30,"Deck openings and hull plating"],[31,"Internal bulkheads and stiffening"],[32,"Loads applied to the deck structure"],[33,"Total deformation of the deck"],[34,"Stress close-up around the pedestal"]],
+  tb:[APS,["Software","Ansys Mechanical"],["Role","Structural engineer"]]},
+ {id:"hull154", g:["structure"], tags:["Structure"],
+  title:"Hull 154, deck strength", sub:"Deck and pillar structure",
+  lead:"Deck strength analysis of a deck on pillars with large openings, with the mesh refined around the openings and pillar heads.",
+  facts:[],
+  pts:["Deck, girders and pillars modelled as one structure.","Refined mesh around openings and pillar heads."],
+  figs:[[35,"Deck and pillar structure model"],[36,"Loaded deck panels and pillar layout"],[37,"Pillar and girder detail, refined mesh"],[38,"Mesh around a deck opening"],[39,"Total deformation"],[40,"Equivalent stress"]],
+  tb:[APS,["Revision","Rev. 01, deck strength analysis"],["Software","Ansys Mechanical"],["Role","Structural engineer"]]},
+ {id:"crane", g:["structure"], tags:["Structure","Fatigue"],
+  title:"Gantry crane fatigue assessment", sub:"Remaining life of a damaged crane",
+  lead:"Remaining fatigue life of a 48-tonne gantry crane that had corroded and been damaged. The assessment ends with recommended repairs.",
+  facts:[["48 t","gantry crane"],["Dubai","client site"]],
+  pts:["Shell model of girders, legs and joints.","Stress hot spots and safety factors mapped along the crane.","Repair recommendations from the weakest joints."],
+  figs:[[41,"Total deformation under service load"],[42,"Loads and boundary conditions"],[43,"Shell mesh at the girder joint"],[44,"Stress hot spots at the girder-to-leg junction"],[45,"Safety factor along the crane"],[46,"Safety factor at the critical joint"]],
+  tb:[APS,["Client","World Crane Service, Dubai, via Nord Welding and Engineering AS, Norway"],["Software","Ansys Mechanical"],["Role","Structural engineer"]]},
+ {id:"drydock", g:["structure"], tags:["Structure"],
+  title:"Dry dock gate", sub:"Seabed-hinged shipyard gate",
+  lead:"Structural analysis of a 30 m by 8 m shipyard dry dock gate that hinges at the seabed.",
+  facts:[["30 × 8 m","gate"],["Seabed","hinge"]],
+  pts:["Gate plating and stiffening modelled in detail.","Stress and deformation checked under load."],
+  figs:[[47,"Gate model with internal stiffening"],[48,"Gate and dock-entrance geometry"],[49,"Loads and supports"],[50,"Equivalent stress over the gate plating"],[51,"Total deformation, front panel"],[52,"Total deformation, loaded condition"]],
+  tb:[APS,["Software","Ansys Mechanical"],["Role","Structural engineer"]]},
+ {id:"pontoon", g:["hydro"], tags:["Hydrodynamics","Mooring"],
+  title:"Floating fuel station pontoon", sub:"Motions and mooring loads, Dubai coast",
+  lead:"Motions, accelerations and wave loads on a floating fuel station, used to set its mooring arrangement off the Dubai coast, with a hydrostatics and intact-stability report.",
+  facts:[["0°, 45°, 90°","wave headings"],["Irregular","waves, time domain"]],
+  pts:["Frequency and time-domain response in Ansys AQWA.","Mooring forces tabulated by wave heading.","Hydrostatic and intact-stability calculations."],
+  figs:[[53,"Two-module pontoon, hydrodynamic model"],[54,"Irregular-wave surface elevation"],[55,"Pontoon response, time series"],[56,"Time-domain force on the connection"],[57,"Force summary by wave heading"],[58,"Response statistics"]],
+  tb:[APS,["Client","ADNOC Distribution, PROGTECH Services"],["Software","Ansys AQWA"],["Role","Hydrodynamics engineer"]]},
+ {id:"manoeuvring", g:["hydro"], tags:["CFD","Research"],
+  title:"Ship manoeuvring and rudder design", sub:"IMO manoeuvres in CFD",
+  lead:"Full-scale CFD of a twin-screw frigate through the IMO manoeuvre suite, used to choose the rudder position from four propeller-to-rudder distances. Published as two student journal articles.",
+  facts:[["6","IMO manoeuvres simulated"],["4","rudder positions compared"]],
+  pts:["Turning circle, zigzag, pull-out, spiral, crash-stop and Williamson turn.","Overset mesh around hull, propellers and rudders.","Rudder position selected from the manoeuvring results."],
+  figs:[[59,"Wake pattern behind the hull during a turn"],[60,"Rudder and propeller geometry"],[61,"Mesh around rudder and propeller"],[62,"Free surface at four ship speeds"],[63,"Turning trajectories at different speeds"],[64,"Wake pattern later in the turn"]],
+  tb:[APS,["Software","STAR-CCM+"],["Standard","IMO manoeuvring criteria"],["Role","CFD engineer and researcher"]]},
+ {id:"airboat", g:["hydro"], tags:["CFD","Powering"],
+  title:"Search and rescue airboat", sub:"Resistance and powering",
+  lead:"Resistance and powering of a high-speed search and rescue airboat, with a feasibility check of the engine.",
+  facts:[["High speed","planing hull"],["Engine","feasibility study"]],
+  pts:["CFD of the hull with air and water phases.","Resistance converted to required power.","Engine feasibility compared with the requirement."],
+  figs:[[65,"Wave and wake pattern behind the hull, plan view"],[66,"Mesh refinement around the airboat"],[67,"Free surface and air flow along the hull"],[68,"Pressure on the hull bottom"]],
+  tb:[APS,["Software","STAR-CCM+, Autoship"],["Role","CFD engineer"]]},
+ {id:"thesis", g:["research"], tags:["Machine learning","M.Sc. thesis"],
+  title:"Damage detection in an offshore jacket", sub:"Machine learning, sensor reduction, localisation",
+  lead:"Damage detection and localisation on a 1:25 laboratory jacket inspired by the Resalat platform, from noisy impact tests.",
+  facts:[["176","simulated cases, 128 damaged"],["32 to 12","sensors after selection"],["> 90%","damage-detection accuracy"],["MAC > 0.91","FE model calibrated to test data"]],
+  pts:["2.55 m aluminium jacket, 40 nodes, 112 tubular members; Ansys model checked against impact tests.","Four impact points, three force levels, noise up to 5%, and 10% or 35% wall thinning in four members.","Mode shapes shift over 6% with impact force and over 4% with noise, which can mask mild damage.","Unsupervised PCA and supervised LDA detect damage; effective independence cuts 32 sensors to 12.","New graph-spectral index GSDEI ranks members by filtered modal change; tested against MSE, ULS, LIRDI, MKEI."],
+  figs:[[69,"Localisation of a 10% stiffness loss in member 18 (left): GSDEI against the benchmark indices LIRDI, ULS, MSE, MKEI and a combined index"],[70,"Laboratory jacket model (1:25) and its Ansys FE model"],[71,"First two mode shapes of the FE model, 24.4 and 33.2 Hz"],[72,"Sensor array cut from 32 to 12 nodes (effective independence)"],[73,"PCA monitoring: Q and T² statistics, impact L2, 32 sensors"],[74,"LDA projection, impact L1: healthy and damaged states separate"]],
+  tb:[["University","Sharif University of Technology, 2026"],["Supervisor","Dr. Mohammadreza Tabeshpour"],["Funding","Iran National Science Foundation grant"],["Software","Ansys"],["Role","Researcher and thesis author"]]}
+];
+
+const $ = (s, r=document) => r.querySelector(s);
+const el = (tag, props={}, kids=[]) => { const e = document.createElement(tag); Object.assign(e, props); kids.forEach(k => e.append(k)); return e; };
+const img = (i, alt="") => { const m = el("img", {alt, loading:"lazy"}); m.src = IMG[i] || ""; return m; };
+
+/* static images */
+document.querySelectorAll("img[data-img]").forEach(m => { m.loading = "lazy"; m.src = IMG[+m.dataset.img] || ""; });
+
+/* body plan: aft stations to the left of the centreline, forward stations to the right */
+(function bodyPlan(){
+  const svg = $("#bodyplan"), NS = "http://www.w3.org/2000/svg";
+  const cx = 320, base = 288, D = 196, B = 282;
+  const mk = (t, a, parent) => { const n = document.createElementNS(NS, t); for (const k in a) n.setAttribute(k, a[k]); (parent||svg).append(n); return n; };
+  const grid = mk("g", {class:"grid"});
+  const top = base - D*1.2;
+  mk("line", {x1:cx-B-16, x2:cx+B+16, y1:base, y2:base, class:"base"}, grid);
+  for (let k = 1; k <= 5; k++) { const y = base - D*k/5; mk("line", {x1:cx-B-6, x2:cx+B+6, y1:y, y2:y}, grid); }
+  for (let k = 1; k <= 3; k++) { [-1,1].forEach(sd => { const x = cx + sd*B*k/3; mk("line", {x1:x, x2:x, y1:base, y2:top}, grid); }); }
+  mk("line", {x1:cx, x2:cx, y1:base+12, y2:top-14, class:"cl"}, grid);
+  const dwlY = base - D*0.62;
+  mk("line", {x1:cx-B-16, x2:cx+B+16, y1:dwlY, y2:dwlY, class:"dwl"}, grid);
+  // station, deck half-breadth, keel rise, section fullness
+  const ST = [[0,.76,.46,2.6],[1,.88,.18,3.2],[2,.95,.04,4.8],[3,.99,0,7],[4,1,0,9],[5,1,0,11],
+              [5,1,0,11],[6,.99,0,8],[7,.95,0,5],[8,.84,0,3.2],[9,.62,0,2],[10,.22,0,1.3]];
+  const paths = mk("g", {});
+  ST.forEach(([s, bd, zk, p], i) => {
+    const side = i < 6 ? -1 : 1, u = (s - 5)/5;
+    const deck = D*(1 + (u > 0 ? 0.2*u*u : 0.06*u*u));   // sheer rises toward the bow
+    const pts = [];
+    for (let k = 0; k <= 48; k++) {
+      const t = k/48, y = bd*B*Math.pow(1 - Math.pow(1 - t, p), 1/p), z = zk*D + (deck - zk*D)*t;
+      pts.push((cx + side*y).toFixed(1) + "," + (base - z).toFixed(1));
+    }
+    const path = mk("path", {d:"M" + pts.join("L"), class:"st" + (s === 5 ? " mid" : ""), pathLength:1}, paths);
+    path.style.animationDelay = (0.15 + Math.abs(s - 5)*0.11) + "s";
+  });
+  const labels = mk("g", {class:"labels"});
+  mk("text", {x:cx+B+22, y:dwlY+4}, labels).textContent = "DWL";
+  mk("text", {x:cx+B+22, y:base+4}, labels).textContent = "BL";
+  mk("text", {x:cx, y:base+28, "text-anchor":"middle"}, labels).textContent = "CL";
+  const sides = mk("g", {class:"sides"}, labels);
+  mk("text", {x:cx-B, y:base+28}, sides).textContent = "Aft body";
+  mk("text", {x:cx+B, y:base+28, "text-anchor":"end"}, sides).textContent = "Fore body";
+})();
+
+/* project cards */
+const cards = $("#cards");
+P.filter(p => p.id !== "thesis").forEach(p => {
+  const sw = (p.tb.find(r => r[0] === "Software") || ["",""])[1];
+  const ph = el("div", {className:"ph"}, [img(p.figs[0][0])]);
+  if (p.ca) ph.append(el("span", {className:"badge", textContent:"Class-approved"}));
+  const btn = el("button", {type:"button", className:"card"}, [
+    ph,
+    el("div", {className:"tx"}, [
+      el("h3", {textContent:p.title}),
+      el("p", {textContent:p.sub}),
+      el("span", {className:"sw", textContent:sw})
+    ])
+  ]);
+  btn.addEventListener("click", () => openProject(p.id));
+  const li = el("li", {}, [btn]);
+  li.dataset.g = p.g.join(" ");
+  cards.append(li);
+});
+
+/* filters */
+const fbtns = document.querySelectorAll(".filters button");
+fbtns.forEach(b => {
+  const f = b.dataset.f;
+  b.querySelector(".n").textContent = [...cards.children].filter(li => f === "all" || li.dataset.g.split(" ").includes(f)).length;
+  b.addEventListener("click", () => {
+    fbtns.forEach(x => x.setAttribute("aria-pressed", x === b));
+    [...cards.children].forEach(li => { li.hidden = !(f === "all" || li.dataset.g.split(" ").includes(f)); });
+  });
+});
+
+/* thesis figure row */
+const thesis = P.find(p => p.id === "thesis");
+thesis.figs.slice(1).forEach(([n, cap], k) => {
+  const b = el("button", {type:"button", title:cap}, [img(n, cap)]);
+  b.setAttribute("aria-label", "Open thesis figure " + (k + 2) + ": " + cap);
+  b.addEventListener("click", () => openProject("thesis", k + 1));
+  $("#thesis-row").append(b);
+});
+document.querySelectorAll("[data-open]").forEach(b => b.addEventListener("click", () => openProject(b.dataset.open, +(b.dataset.fig || 0))));
+
+/* project dialog */
+const dlg = $("#pd"), zoom = $("#zoom");
+let cur = 0, fig = 0, opener = null;
+
+function showFig(k){
+  const p = P[cur]; fig = k;
+  const [n, cap] = p.figs[k];
+  const m = $("#pd-img"); m.src = IMG[n] || ""; m.alt = cap;
+  $("#pd-cap").replaceChildren(el("b", {textContent:"Fig. " + (k + 1)}), cap);
+  $("#pd-thumbs").querySelectorAll("button").forEach((b, i) => b.setAttribute("aria-current", i === k));
+}
+
+function render(){
+  const p = P[cur];
+  $("#pd-where").textContent = "Sheet " + (cur + 1) + " of " + P.length;
+  const tags = p.tags.map(t => el("li", {textContent:t}));
+  if (p.ca) tags.push(el("li", {className:"ca", textContent:"Class-approved"}));
+  $("#pd-tags").replaceChildren(...tags);
+  $("#pd-title").textContent = p.title;
+  $("#pd-lead").textContent = p.lead;
+  const facts = $("#pd-facts");
+  facts.replaceChildren(...p.facts.map(([v, l]) => el("div", {}, [el("dt", {textContent:v}), el("dd", {textContent:l})])));
+  facts.hidden = !p.facts.length;
+  $("#pd-pts").replaceChildren(...p.pts.map(t => el("li", {textContent:t})));
+  $("#pd-thumbs").replaceChildren(...p.figs.map(([n, cap], k) => {
+    const b = el("button", {type:"button", title:cap}, [img(n, "")]);
+    b.setAttribute("aria-label", "Show figure " + (k + 1) + ": " + cap);
+    b.addEventListener("click", () => showFig(k));
+    return b;
+  }));
+  $("#pd-tb").replaceChildren(...p.tb.map(([k, v]) => el("div", {}, [el("dt", {textContent:k}), el("dd", {textContent:v})])),
+    el("div", {}, [el("dt", {textContent:"Sheet"}), el("dd", {textContent:(cur + 1) + " of " + P.length})]));
+  $(".pd-info").scrollTop = 0;
+}
+
+function openProject(id, k = 0){
+  cur = Math.max(0, P.findIndex(p => p.id === id));
+  render(); showFig(Math.min(k, P[cur].figs.length - 1));
+  if (!dlg.open) { opener = document.activeElement; dlg.showModal(); document.body.style.overflow = "hidden"; }
+  history.replaceState(null, "", "#" + P[cur].id);
+}
+function step(d){ cur = (cur + d + P.length) % P.length; render(); showFig(0); history.replaceState(null, "", "#" + P[cur].id); }
+
+$("#pd-prev").addEventListener("click", () => step(-1));
+$("#pd-next").addEventListener("click", () => step(1));
+$("#pd-close").addEventListener("click", () => dlg.close());
+dlg.addEventListener("close", () => {
+  zoom.hidden = true; document.body.style.overflow = "";
+  history.replaceState(null, "", location.pathname + location.search);
+  if (opener && opener.focus) opener.focus({preventScroll:true});
+});
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+dlg.addEventListener("cancel", e => { if (!zoom.hidden) { e.preventDefault(); zoom.hidden = true; $("#pd-zoom").focus(); } });
+dlg.addEventListener("keydown", e => {
+  if (!zoom.hidden) return;
+  if (e.key === "ArrowRight") { e.preventDefault(); step(1); }
+  if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); }
+});
+$("#pd-zoom").addEventListener("click", () => { zoom.querySelector("img").src = $("#pd-img").src; zoom.querySelector("img").alt = $("#pd-img").alt; zoom.hidden = false; zoom.focus(); });
+zoom.addEventListener("click", () => { zoom.hidden = true; $("#pd-zoom").focus(); });
+
+/* deep link to a project */
+const start = location.hash.slice(1);
+if (P.some(p => p.id === start)) openProject(start);
+
+/* print */
+document.querySelectorAll("[data-print]").forEach(b => b.addEventListener("click", () => window.print()));
+
+/* highlight the section in view */
+const links = [...document.querySelectorAll(".nav ul a")];
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id));
+}), {rootMargin:"-45% 0px -50% 0px"});
+document.querySelectorAll("main section[id]").forEach(s => io.observe(s));
+</script>
+</body>
+</html>
